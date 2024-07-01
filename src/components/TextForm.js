@@ -10,16 +10,17 @@ export default function TextForm(props) {
         let newText = text.toLowerCase();
         setText(newText);
     }
+    const summaryClick = () => {
+        const textSummary = document.getElementById("summary");
+        textSummary.classList.remove("summaryhide");
+    }
     const clearClick = () => {
         let newText = "";
         setText(newText);
-    }
-    const capitalClick = () => {
-        let newtext = text[0].toUpperCase() + text.slice(1);
-        setText(newtext);
-    }
-    const summaryClick = () => {
         
+        const textSummary = document.getElementById("summary");
+        textSummary.classList.add("summaryhide");
+
     }
 
     // Handling change
@@ -38,14 +39,13 @@ export default function TextForm(props) {
       </div>
       <button onClick={upperClick} className="btn btn-danger mx-2">UPPERCASE</button>
       <button onClick={lowerClick} className="btn btn-danger mx-2">lowercase</button>
-      <button onClick={capitalClick} className="btn btn-danger mx-2">Capitalized case</button>
-      <button onClick={summaryClick} className="btn btn-danger mx-2">Text summary</button>
+      <button onClick={summaryClick} className="btn btn-danger mx-2" id="summary-btn">Text summary</button>
       <button onClick={clearClick} className="btn btn-danger mx-2">Clear text</button>
       
 
 
       </div>
-      <div className="container my-4">
+      <div className="container my-4 summaryhide" id="summary">
         <h2 className="my-4">Your text summary</h2>
         <p><b>Characters : </b>{text.length} <br />
         <b>Words : </b>{text.split(" ").length} <br />
@@ -55,6 +55,7 @@ export default function TextForm(props) {
     </>
   );
 }
+
 
 TextForm.propTypes = {
   heading: PropTypes.string.isRequired,
