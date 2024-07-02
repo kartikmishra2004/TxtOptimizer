@@ -1,6 +1,7 @@
 import React from "react";
 
 export default function About(props) {
+  document.title = "TxtOptimizer - About";
   return (
     <>
       <div className="container" style={{ color: props.Mode === 'light' ? 'black' : 'white' }}>
@@ -9,7 +10,7 @@ export default function About(props) {
           Welcome to TxtOptimizer, your ultimate text transformation tool, meticulously crafted to enhance and streamline your writing experience. TxtOptimizer is designed for writers, editors, students, professionals, and anyone who works with text. Our app provides a comprehensive suite of tools that make text conversion and analysis easier and more efficient than ever before. <br /> <br />
           With TxtOptimizer, transforming text is as simple as a few clicks. Whether you need to convert text to uppercase, lowercase, or other formats, TxtOptimizer ensures your text meets the exact formatting requirements. This makes it ideal for preparing professional documents, academic papers, creative projects, and more.
         </p>
-        <h3>Features : </h3>
+        <h3>Features</h3>
         <p>
           <b>Text Conversion</b> : Instantly convert your text to uppercase, lowercase, or other formats with ease. <br />
           <b>Word Count</b> : Get an accurate word count to help you stay within your limits or reach your goals. <br />

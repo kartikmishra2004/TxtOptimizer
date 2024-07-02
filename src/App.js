@@ -39,7 +39,7 @@ function App() {
     <>
       <BrowserRouter>
         <Navbar title="TxtOptimizer" Mode={Mode} toggleMode={toggleMode} />
-        <Alert alert={AlertStuff} />
+        <Alert alert={AlertStuff} Mode={Mode} />
         <div className="container my-3">
           <Routes>
             {/* Home Route */}
@@ -48,7 +48,7 @@ function App() {
             </Route>
 
             {/* About Route */}
-            <Route exact path="/about" element={<About Mode={Mode}/>}>
+            <Route exact path="/about" element={<About Mode={Mode} />}>
               
             </Route>
           </Routes>

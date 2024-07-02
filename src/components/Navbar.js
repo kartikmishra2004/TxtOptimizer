@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 export default function Navbar(props) {
   return (
-    <nav className={`navbar navbar-expand-lg`} style={{backgroundColor: props.Mode === 'dark' ? '#121212' : '#f4f4f4'}}>
+    <nav className={`navbar navbar-expand-lg`} style={{backgroundColor: props.Mode === 'dark' ? '#121212' : '#f4f4f4', height: '10vh'}}>
       <div className="container-fluid">
         <Link style={{color: props.Mode === 'dark' ? 'white' : 'black'}} className="navbar-brand" to="/">
           {props.title}

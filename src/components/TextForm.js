@@ -48,6 +48,8 @@ export default function TextForm(props) {
 
 
   const [text, setText] = useState("");
+  document.title = "TxtOptimizer - Home";
+
   return (
     <>
     <div className="container">
@@ -67,9 +69,9 @@ export default function TextForm(props) {
       </div>
       <div className="container my-4 summaryhide" id="summary" style={{color: props.Mode==='light'?'#1a1a1a':'white'}}>
         <h2 className="my-4">Your text summary</h2>
-        <p><b>Characters : </b>{text.length} <br />
-        <b>Words : </b>{text.split(" ").filter((element)=>{return element.length!==0}).length} <br />
-        <b>Average reading time : </b> {text.length > 0 ? (0.008 * text.split(" ").length).toFixed(2) : "0" } minutes</p>
+        <p><b>Characters</b> : {text.length} <br />
+        <b>Words</b> : {text.split(" ").filter((element)=>{return element.length!==0}).length} <br />
+        <b>Average reading time</b> : {text.length > 0 ? (0.008 * text.split(" ").length).toFixed(2) : "0" } minutes</p>
       </div>
       <div className="previewhide container my-4" id="preview" style={{color: props.Mode==='light'?'#1a1a1a':'white'}}>
         <h2>Preview</h2>
