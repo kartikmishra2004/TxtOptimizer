@@ -46,8 +46,8 @@ export default function TextForm(props) {
         setText(event.target.value)
     }
 
-  const [text, setText] = useState("");
 
+  const [text, setText] = useState("");
   return (
     <>
     <div className="container">
@@ -57,8 +57,8 @@ export default function TextForm(props) {
       </div>
       <button onClick={upperClick} className="btn btn-danger mx-2 my-2">UPPERCASE</button>
       <button onClick={lowerClick} className="btn btn-danger mx-2 my-2">lowercase</button>
-      <button onClick={summaryClick} className="btn btn-danger mx-2 my-2" id="summary-btn">Text summary</button>
       <button onClick={removeExtraSpacesClick} className="btn btn-danger mx-2 my-2">Remove extra spaces</button>
+      <button onClick={summaryClick} className="btn btn-danger mx-2 my-2" id="summary-btn">Text summary</button>
       <button onClick={copyClick} className="btn btn-danger mx-2 my-2">Copy text</button>
       <button onClick={clearClick} className="btn btn-danger mx-2 my-2">Clear text</button>
       
@@ -67,10 +67,8 @@ export default function TextForm(props) {
       </div>
       <div className="container my-4 summaryhide" id="summary" style={{color: props.Mode==='light'?'#1a1a1a':'white'}}>
         <h2 className="my-4">Your text summary</h2>
-        <p><b>Characters : </b>{text.length > 0 ? text.length : "0"} <br />
-        <b>Words : </b>{text.length > 0 ? text.split(" ").length : "0"} <br />
-        <b>Sentences : </b>{text.length > 0 ? text.split(".").length -1 : "0"} <br />
-        <b>Paragraph : </b>{text.length > 0 ? text.split("\n\n").length : "0"} <br />
+        <p><b>Characters : </b>{text.length} <br />
+        <b>Words : </b>{text.split(" ").filter((element)=>{return element.length!==0}).length} <br />
         <b>Average reading time : </b> {text.length > 0 ? (0.008 * text.split(" ").length).toFixed(2) : "0" } minutes</p>
       </div>
       <div className="previewhide container my-4" id="preview" style={{color: props.Mode==='light'?'#1a1a1a':'white'}}>
