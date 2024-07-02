@@ -1,13 +1,14 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 
 export default function Navbar(props) {
   return (
-    <nav className={`navbar navbar-expand-lg navbar-${props.Mode} bg-${props.Mode}`}>
+    <nav className={`navbar navbar-expand-lg`} style={{backgroundColor: props.Mode === 'dark' ? '#121212' : '#f4f4f4'}}>
       <div className="container-fluid">
-        <a className="navbar-brand" href="/">
+        <Link style={{color: props.Mode === 'dark' ? 'white' : 'black'}} className="navbar-brand" to="/">
           {props.title}
-        </a>
+        </Link>
         <button
           className="navbar-toggler"
           type="button"
@@ -22,18 +23,18 @@ export default function Navbar(props) {
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item">
-              <a className="nav-link active" aria-current="page" href="/">
+              <Link style={{color: props.Mode === 'dark' ? 'white' : 'black'}} className="nav-link" aria-current="page" to="/">
                 Home
-              </a>
+              </Link>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="/">
-                {props.aboutText}
-              </a>
+              <Link style={{color: props.Mode === 'dark' ? 'white' : 'black'}} className="nav-link" to="/about">
+                About
+              </Link>
             </li>
           </ul>
           <form className="d-flex" role="search">
-            <div className={`form-check form-switch mx-4 text-${props.Mode==='light'?'dark':'light'}`}>
+            <div className={`form-check form-switch mx-4 text-${props.Mode === 'light' ? 'black': 'white' }`}>
               <input onClick={props.toggleMode} className="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault"/>
               <label className="form-check-label" htmlFor="flexSwitchCheckDefault">Dark mode</label>
             </div>
@@ -52,5 +53,4 @@ Navbar.propTypes = {
 // Default-props
 Navbar.defaultProps = {
   title: "Set title here",
-  aboutText: "About",
 };

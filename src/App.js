@@ -1,14 +1,20 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import "./App.css";
 import Navbar from "./components/Navbar";
 import TextForm from "./components/TextForm";
+import About from "./components/About";
 import Alert from "./components/Alert";
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+} from "react-router-dom";
 
 function App() {
   const [Mode, setMode] = useState("light"); // This state defines that weather dark mode is enabled or disabled.
-  const [AlertStuff, setAlertStuff ] = useState(null);
+  const [AlertStuff, setAlertStuff] = useState(null);
 
-const ShowAlert = (message, type) => {
+  const ShowAlert = (message, type) => {
     setAlertStuff({
       msg: message,
       type: type
@@ -16,7 +22,7 @@ const ShowAlert = (message, type) => {
     setTimeout(() => {
       setAlertStuff(null);
     }, 1500);
-}
+  }
   const toggleMode = () => {
     if (Mode === "light") {
       setMode("dark");
@@ -31,11 +37,24 @@ const ShowAlert = (message, type) => {
   }
   return (
     <>
-      <Navbar title="TxtOptimizer" Mode={Mode} toggleMode={toggleMode} />
-      <Alert alert={AlertStuff}/>
-      <div className="container my-3">
-        <TextForm ShowAlert={ShowAlert} heading="Enter the text below to optimize" Mode={Mode} />
-      </div>
+      <BrowserRouter>
+        <Navbar title="TxtOptimizer" Mode={Mode} toggleMode={toggleMode} />
+        <Alert alert={AlertStuff} />
+        <div className="container my-3">
+          <Routes>
+            {/* Home Route */}
+            <Route exact path="/" element={<TextForm ShowAlert={ShowAlert} heading="Enter the text below to optimize" Mode={Mode}/>} >
+              
+            </Route>
+
+            {/* About Route */}
+            <Route exact path="/about" element={<About Mode={Mode}/>}>
+              
+            </Route>
+          </Routes>
+        </div>
+      </BrowserRouter>
+
     </>
   );
 }
