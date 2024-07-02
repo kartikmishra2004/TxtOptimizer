@@ -5,10 +5,12 @@ export default function TextForm(props) {
     const upperClick = () => {
         let newText = text.toUpperCase();
         setText(newText);
+        props.ShowAlert("Converted to uppercase!", "success");
     }
     const lowerClick = () => {
         let newText = text.toLowerCase();
         setText(newText);
+        props.ShowAlert("Converted to lowercase!", "success");
     }
     const summaryClick = () => {
         const textSummary = document.getElementById("summary");
@@ -20,14 +22,17 @@ export default function TextForm(props) {
       var text = document.getElementById("textBox");
       text.select();
       navigator.clipboard.writeText(text.value);
+      props.ShowAlert("Coppied to clipboard!", "success");
     }
     const removeExtraSpacesClick = () => {
       let newText = text.split(/[ ]+ /);
       setText(newText.join(" "));
+      props.ShowAlert("Extra space removed!", "success");
     }
     const clearClick = () => {
         let newText = "";
         setText(newText);
+        props.ShowAlert("Text cleared!", "success");
         
         const textSummary = document.getElementById("summary");
         const preview = document.getElementById("preview");
@@ -54,7 +59,7 @@ export default function TextForm(props) {
       <button onClick={lowerClick} className="btn btn-danger mx-2 my-2">lowercase</button>
       <button onClick={summaryClick} className="btn btn-danger mx-2 my-2" id="summary-btn">Text summary</button>
       <button onClick={removeExtraSpacesClick} className="btn btn-danger mx-2 my-2">Remove extra spaces</button>
-      <button onClick={copyClick} className="btn btn-danger mx-2 my-2">Copy to clipboard</button>
+      <button onClick={copyClick} className="btn btn-danger mx-2 my-2">Copy text</button>
       <button onClick={clearClick} className="btn btn-danger mx-2 my-2">Clear text</button>
       
 
