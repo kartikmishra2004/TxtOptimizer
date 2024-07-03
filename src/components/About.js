@@ -2,9 +2,10 @@ import React from "react";
 
 export default function About(props) {
   document.title = "TxtOptimizer - About";
+  document.body.style.transition = '0.3s all ease-in-out'
   return (
     <>
-      <div className="container" style={{ color: props.Mode === 'light' ? 'black' : 'white' }}>
+      <div className="container" style={{ color: props.Mode === 'light' ? 'black' : '#cccccc' }}>
         <h2>About TxtOptimizer</h2>
         <p>
           Welcome to TxtOptimizer, your ultimate text transformation tool, meticulously crafted to enhance and streamline your writing experience. TxtOptimizer is designed for writers, editors, students, professionals, and anyone who works with text. Our app provides a comprehensive suite of tools that make text conversion and analysis easier and more efficient than ever before. <br /> <br />

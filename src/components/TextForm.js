@@ -46,16 +46,17 @@ export default function TextForm(props) {
         setText(event.target.value)
     }
 
-
   const [text, setText] = useState("");
+  
   document.title = "TxtOptimizer - Home";
+  document.body.style.transition = '0.3s all ease-in-out'
 
   return (
     <>
     <div className="container">
-      <h2 style={{color: props.Mode==='light'?'#1a1a1a':'white'}}>{props.heading}</h2>
+      <h2 style={{color: props.Mode==='light'?'#1a1a1a':'#cccccc'}}>{props.heading}</h2>
       <div className="mb-3">
-        <textarea style={{backgroundColor : props.Mode==='light'?'white':'#222222',color: props.Mode==='light'?'#1a1a1a':'white'}} className="form-control" id="textBox" rows="8" value={text} onChange={handleOnChange}></textarea>
+        <textarea style={{backgroundColor : props.Mode==='light'?'#f4f4f4':'#222222',color: props.Mode==='light'?'#1a1a1a':'#cccccc', transition : '0.3s all ease-in-out'}} className="form-control" id="textBox" rows="8" value={text} onChange={handleOnChange}></textarea>
       </div>
       <button onClick={upperClick} className="btn btn-danger mx-2 my-2">UPPERCASE</button>
       <button onClick={lowerClick} className="btn btn-danger mx-2 my-2">lowercase</button>
@@ -67,13 +68,13 @@ export default function TextForm(props) {
 
 
       </div>
-      <div className="container my-4 summaryhide" id="summary" style={{color: props.Mode==='light'?'#1a1a1a':'white'}}>
+      <div className="container my-4 summaryhide" id="summary" style={{color: props.Mode==='light'?'#1a1a1a':'#cccccc'}}>
         <h2 className="my-4">Your text summary</h2>
         <p><b>Characters</b> : {text.length} <br />
         <b>Words</b> : {text.split(" ").filter((element)=>{return element.length!==0}).length} <br />
         <b>Average reading time</b> : {text.length > 0 ? (0.008 * text.split(" ").length).toFixed(2) : "0" } minutes</p>
       </div>
-      <div className="previewhide container my-4" id="preview" style={{color: props.Mode==='light'?'#1a1a1a':'white'}}>
+      <div className="previewhide container my-4" id="preview" style={{color: props.Mode==='light'?'#1a1a1a':'#cccccc'}}>
         <h2>Preview</h2>
         <p>{text.length > 0 ? text : "Enter something in the textbox to preview"}</p>
       </div>

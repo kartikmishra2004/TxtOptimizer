@@ -4,9 +4,9 @@ import { Link } from "react-router-dom";
 
 export default function Navbar(props) {
   return (
-    <nav className={`navbar navbar-expand-lg`} style={{backgroundColor: props.Mode === 'dark' ? '#121212' : '#f4f4f4', height: '10vh'}}>
+    <nav className={`navbar navbar-expand-lg`} style={{ backgroundColor: props.Mode === 'dark' ? '#121212' : '#f4f4f4', height: '10vh', transition: '0.3s all ease-in-out' }}>
       <div className="container-fluid">
-        <Link style={{color: props.Mode === 'dark' ? 'white' : 'black'}} className="navbar-brand" to="/">
+        <Link style={{ color: props.Mode === 'dark' ? '#cccccc' : 'black'}} className="navbar-brand" to="/">
           {props.title}
         </Link>
         <button
@@ -18,25 +18,41 @@ export default function Navbar(props) {
           aria-expanded="false"
           aria-label="Toggle navigation"
         >
-          <span className="navbar-toggler-icon"></span>
+          <span className="navbar-toggler-icon" style={{filter: props.Mode === 'dark' ? 'invert(1)' : 'none'}}></span>
         </button>
-        <div className="collapse navbar-collapse" id="navbarSupportedContent">
+        <div className="collapse navbar-collapse" id="navbarSupportedContent" style={{ backgroundColor: props.Mode === 'dark' ? '#121212' : '#f4f4f4', transition: '0.3s all ease-in-out'}}>
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item">
-              <Link style={{color: props.Mode === 'dark' ? 'white' : 'black'}} className="nav-link" aria-current="page" to="/">
+              <Link style={{ color: props.Mode === 'dark' ? '#cccccc' : 'black' }} className="nav-link" aria-current="page" to="/">
                 Home
               </Link>
             </li>
             <li className="nav-item">
-              <Link style={{color: props.Mode === 'dark' ? 'white' : 'black'}} className="nav-link" to="/about">
+              <Link style={{ color: props.Mode === 'dark' ? '#cccccc' : 'black' }} className="nav-link" to="/about">
                 About
               </Link>
             </li>
           </ul>
           <form className="d-flex" role="search">
-            <div className={`form-check form-switch mx-4 text-${props.Mode === 'light' ? 'black': 'white' }`}>
-              <input onClick={props.toggleMode} className="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault"/>
-              <label className="form-check-label" htmlFor="flexSwitchCheckDefault">Dark mode</label>
+            <div className={`form-check form-switch mx-4 text-${props.Mode === 'light' ? 'black' : 'white'}`}>
+              
+              <label htmlFor="theme" className="theme">
+                <span className="theme__toggle-wrap">
+                  <input onClick={props.toggleMode} id="theme" className="theme__toggle" type="checkbox" role="switch" name="theme" value="dark" />
+                  <span className="theme__fill"></span>
+                  <span className="theme__icon">
+                    <span className="theme__icon-part"></span>
+                    <span className="theme__icon-part"></span>
+                    <span className="theme__icon-part"></span>
+                    <span className="theme__icon-part"></span>
+                    <span className="theme__icon-part"></span>
+                    <span className="theme__icon-part"></span>
+                    <span className="theme__icon-part"></span>
+                    <span className="theme__icon-part"></span>
+                    <span className="theme__icon-part"></span>
+                  </span>
+                </span>
+              </label>
             </div>
           </form>
         </div>
