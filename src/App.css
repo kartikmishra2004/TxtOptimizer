@@ -215,7 +215,6 @@
 
     .container-fluid{
       padding: 0;
-      height: 6vh;
     }
     .navbar-brand{
       padding-left: 20px;
@@ -223,4 +222,7 @@
     .navbar-toggler{
       margin-right: 17px;
     }
+  }
+  .container-fluid{
+    height: 6vh;
   }
